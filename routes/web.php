@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use App\Models\Listing;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +17,57 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+//All listing
 Route::get('/', function () {
-    return view('welcome');
+    //lets just say we want a heading 
+    return view('listings',[
+        'heading'=>'Latest listings',
+        'listings'=>Listing::all()
+    ]);
 });
+
+//single listing 
+Route::get('/listings/{id}',function($id){
+    return view('listing',['listing'=>Listing::find($id)]);
+});
+
+
+Route::get('/hello',function(){
+    return "hello word";
+});
+
+Route::get('/hi/{id}',function($id){
+    return response('you enter '.$id);
+})->where('id','[0-9]+');
+
+Route::get('/hii/{id}',function($id){
+    // dd($id);
+    // ddd($id);
+    return response('you typed  '.$id);
+})->where('id','[A-Za-z]+');
+
+
+
+Route::get('/hye',function(){
+    return response('<h1>welcome to my website </h1>',200)
+    ->header('Content-Type','text/plain')
+    ->header('laravel-version','laravel 10');
+    
+});
+
+
+//helper methods for debugging
+/* dd(); die dump
+ddd(); die dump and debug */
+
+
+//Request response
+Route::get('/search', function(Request $request){
+    // dd($request);
+    dd($request->name.' '.$request->city);
+});
+
+
+
+
