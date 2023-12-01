@@ -5,7 +5,6 @@
 
 @foreach ($listings as $listing)
 
-<h1>{{$listing['id']}}</h1>
 <a href="/listings/{{$listing['id']}}"><h5>{{$listing['title']}}</h5></a>
 <p>{{$listing['description']}}</p>
 
