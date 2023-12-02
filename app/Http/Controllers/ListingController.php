@@ -8,11 +8,10 @@ use App\Models\Listing;
 class ListingController extends Controller
 {
     //get and show all listing 
-    public function index(Request $request ){
-        dd($request);
-        $data = Listing::all();
+    public function index(){
+        // dd(request());
         return view('listings.index',[
-            'listings'=>$data
+            'listings'=>Listing::latest()->filter(request(['tag']))->get()
         ]);
     }
 

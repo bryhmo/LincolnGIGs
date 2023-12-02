@@ -88,3 +88,7 @@ Route::get('/search', function(Request $request){
 
 
 
+Route::get('/about.com/{name}',function($name){
+    echo "welcome .$name";
+});
+
