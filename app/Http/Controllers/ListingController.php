@@ -44,7 +44,9 @@ class ListingController extends Controller
             'description'=>'required'
         ]);
         if($formfields){
-            return back()->with('success','you have successfully created a post');
+            Listing::create($formfields);
+            return redirect('/');
+            // return back()->with('success','you have successfully created a post');
         }
     }
 }

@@ -9,6 +9,8 @@ class Listing extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     //scope filtering ,this function allowed us to filter by clicking on the tag 
     //from our web page 
     public function scopeFilter($query, array $filters){
