@@ -18,14 +18,8 @@ use App\Models\Listing;
 |
 */
 
-
-Route::get('/',[ListingController::class,'index']);
-Route::get('/listings/{listing}',[ListingController::class,'show']);
-
-
-
-
-/* Common Resource Routes:
+// Common Resource Routes convention:
+/*
 index - show all listings 
 show - show single listing 
 create -   show form to create new listing 
@@ -35,6 +29,27 @@ update - update listing
 destroy - delete listing
 
 */
+
+
+
+//All Listing 
+Route::get('/',[ListingController::class,'index']);
+
+
+
+//Show create form
+Route::get('/listings/create',[ListingController::class,'create']);
+
+//Store  Listings Data
+Route::post('/listings',[ListingController::class,'store']);
+
+//Single Listings
+Route::get('/listings/{listing}',[ListingController::class,'show']);
+
+
+
+
+
 
 
 
