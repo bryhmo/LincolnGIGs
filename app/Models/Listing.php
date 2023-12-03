@@ -9,8 +9,20 @@ class Listing extends Model
 {
     use HasFactory;
 
+    //scope filtering ,this function allowed us to filter by clicking on the tag 
+    //from our web page 
     public function scopeFilter($query, array $filters){
-        // dd($filters['tag']);
+        if($filters['tag'] ?? false){
+            $query->where('tags','like','%'.request('tag'). '%');
+        }
+
+        if($filters['search'] ?? false){
+            $query->where('title','like','%'.request('search'). '%')
+            ->orWhere('description','like','%'.request('search'). '%')
+            ->orWhere('tags','like','%'.request('search'). '%')
+            ->orWhere('company','like','%'.request('search'). '%')
+            ->orWhere('location','like','%'.request('search'). '%');
+        }
     }
     
 }

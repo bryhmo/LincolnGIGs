@@ -18,7 +18,7 @@
 @endforeach
 
 @else
-    <h1>No Listing Found</h1>
+    <h1 style="color: blue">No Listing Found</h1>
 
 @endunless
 
