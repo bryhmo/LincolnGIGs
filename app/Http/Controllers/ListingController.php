@@ -30,7 +30,8 @@ class ListingController extends Controller
         return view('listings.create');
     }
 
-    //store listing data
+
+    //store Listing Data
     public function store(Request $request){
         // dd($request->input());
         // dd($request->all());
@@ -47,14 +48,19 @@ class ListingController extends Controller
 
         //file upload checker 
         if($request->hasFile('logo')){
-            $formfields['logo'] = $request->file('logo')
-                                  ->store('logos','public');
+            $formfields['logo'] = $request->file('logo')->store('logos','public');
         }
         if($formfields){
             Listing::create($formfields);
-            return redirect('/')
-            ->with('success','Listing created successfully');
+            return redirect('/')->with('success','Listing created successfully');
             // return back()->with('success','you have successfully created a post');
         }
+    }
+
+    //Show Edit Form 
+    public function edit(Listing $listing){
+        // dd($listing);
+        // dd($listing->title);
+        return view('listings.edit',['listing'=>$listing]);
     }
 }

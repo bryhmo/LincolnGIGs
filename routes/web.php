@@ -37,7 +37,7 @@ Route::get('/',[ListingController::class,'index']);
 
 
 
-//Show create form
+//Show create Form
 Route::get('/listings/create',[ListingController::class,'create']);
 
 //Store  Listings Data
@@ -46,9 +46,8 @@ Route::post('/listings',[ListingController::class,'store']);
 //Single Listings
 Route::get('/listings/{listing}',[ListingController::class,'show']);
 
-
-
-
+//Show Edit Form
+Route::get('/listings/{listing}/edit',[ListingController::class,'edit']);
 
 
 
