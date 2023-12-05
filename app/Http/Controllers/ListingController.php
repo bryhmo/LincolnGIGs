@@ -13,11 +13,12 @@ class ListingController extends Controller
     public function index(){
         // dd(request());
         return view('listings.index',[
-            'listings'=>Listing::latest()->filter(request(['tag','search']))->get()
+            'listings'=>Listing::latest()
+            ->filter(request([
+                'tag','search']))->paginate(6)
+                // ->simplePaginate(2)
         ]);
     }
-
-
     //show single listing 
     public function show(Listing $listing){
         return view('listings.show',
@@ -47,7 +48,7 @@ class ListingController extends Controller
             Listing::create($formfields);
 
             
-            return redirect('/')->with('message','Listing created successfully');
+            return redirect('/')->with('success','Listing created successfully');
             // return back()->with('success','you have successfully created a post');
         }
     }
