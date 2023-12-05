@@ -34,7 +34,7 @@ class ListingController extends Controller
     public function store(Request $request){
         // dd($request->input());
         // dd($request->all());
-        
+        // dd($request->file('logo'));
         $formfields = $request->validate([
             'title'=>'required',
             'company'=>['required',Rule::unique('listings','company')],
