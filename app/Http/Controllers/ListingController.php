@@ -34,7 +34,7 @@ class ListingController extends Controller
     public function store(Request $request){
         // dd($request->input());
         // dd($request->all());
-
+        
         $formfields = $request->validate([
             'title'=>'required',
             'company'=>['required',Rule::unique('listings','company')],
@@ -44,11 +44,16 @@ class ListingController extends Controller
             'tags'=>'required',
             'description'=>'required'
         ]);
+
+        //file upload checker 
+        if($request->hasFile('logo')){
+            $formfields['logo'] = $request->file('logo')
+                                  ->store('logos','public');
+        }
         if($formfields){
             Listing::create($formfields);
-
-            
-            return redirect('/')->with('success','Listing created successfully');
+            return redirect('/')
+            ->with('success','Listing created successfully');
             // return back()->with('success','you have successfully created a post');
         }
     }
