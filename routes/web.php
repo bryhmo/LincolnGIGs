@@ -4,6 +4,7 @@ use App\Http\Controllers\ListingController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Models\Listing;
+use App\Http\Controllers\UserController;
 
 
 
