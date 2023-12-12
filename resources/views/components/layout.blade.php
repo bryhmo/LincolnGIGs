@@ -38,12 +38,15 @@
                     Welcome {{auth()->user()->name}}
                    </span>
                 </li>
+                 {{-- manage listing user example --}}
                 <li>
                     <a href="/listings/manage" class="hover:text-laravel"
                         ><i class="fa-solid fa-gear"></i>
                         Manage Listings</a
                     >
                 </li>
+
+                {{-- logout user example --}}
                 
                 <li>
                     <form class="inline" method="POST" action="/logout">

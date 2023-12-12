@@ -32,4 +32,34 @@ class UserController extends Controller
         return redirect('/')->with('success','user created and logged in ');
 
     }
+    //logout user 
+    public function logout(Request $request){
+        auth()->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/')->with('success','you have been logged out!');
+    }
+
+    //show login form 
+    public function login(){
+        return view('users.login');
+    }
+
+    //Authenticate User login
+    public function authenticate(Request $request){
+        $formFields = $request->validate([
+            'email'=>['required','email'],
+            'password'=>'required',
+        ]);
+        if(auth()->attempt($formFields)){
+            $request->session()->regenerate();
+            
+            return redirect('/')->with('success','you are now logged in');
+        }
+
+        return back()->withErrors(['email'=>'Invalid Credentials'])->onlyInput('email');
+
+    }
+
+
 }
