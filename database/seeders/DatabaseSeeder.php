@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Listing;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,17 +14,25 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\User::factory(5)->create();
+        $user = User::factory()->create([
+            'name'=>'isiaka ibrahim',
+            'email'=>'isibrahim@gmail.com',
+            
+        ]);
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
 
-        Listing::factory(6)->create();
+        Listing::factory(6)->create([
+            'user_id'=> $user->id,
+        ]);
 
-        Listing::create([
-            
+        /* Listing::create([
+            'user_id'=> $user->id;
+        ]); */
+            /* 
                 'title'=>'Laravel Senior Developer',
                 'tags'=>'Laravel,Javascript',
                 'company'=>'Acme Corp',
@@ -35,9 +44,9 @@ class DatabaseSeeder extends Seeder
                                 facilis adipisci harum ducimus incidunt tempore corporis ullam 
                                 molestias voluptas nulla veritatis et ut!',
         ]);
-        Listing::create([
+        Listing::create([ */
             
-            'title'=>'Full-Stack Engineer',
+       /*      'title'=>'Full-Stack Engineer',
             'tags'=>'Laravel,backend,api',
             'company'=>'Stark Indutries',
             'location'=>'New York,NY',
@@ -60,7 +69,7 @@ class DatabaseSeeder extends Seeder
                             Aliquid, porro perferendis dolores eaque tempora commodi beatae, 
                             facilis adipisci harum ducimus incidunt tempore corporis ullam 
                             molestias voluptas nulla veritatis et ut!',
-        ]);
+        ]); */
             
         
     }

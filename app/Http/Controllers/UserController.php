@@ -65,19 +65,6 @@ class UserController extends Controller
 
 
 
-
-
-    public function loginuser(Request $request){
-
-        $validataUser = $request->validate([
-    
-        ]);
-    
-        if(auth()->attempt($validataUser)){
-            $request->session()->regenerate();
-        }
-    }
-
 }
 
 
