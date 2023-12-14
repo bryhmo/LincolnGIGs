@@ -43,7 +43,8 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-
+    /* the relationship between the Users table and the listings Table was that the 
+     A user  hasMnay listings while the Listings belong to the Users */
     //relationship with listing
     public function listings(){
         return $this->hasMany(Listing::class,'user_id');

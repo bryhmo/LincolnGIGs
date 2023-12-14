@@ -50,6 +50,8 @@ class ListingController extends Controller
         if($request->hasFile('logo')){
             $formfields['logo'] = $request->file('logo')->store('logos','public');
         }
+        //setting the user that is on session and created a listing with the listing id 
+        $formfields['user_id'] = auth()->id();
         if($formfields){
             Listing::create($formfields);
             return redirect('/')->with('success','Listing created successfully');
