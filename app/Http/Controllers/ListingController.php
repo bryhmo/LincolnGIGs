@@ -71,6 +71,11 @@ class ListingController extends Controller
         // dd($request->input());
         // dd($request->all());
         // dd($request->file('logo'));
+
+        //Make Sure logged in User is owner
+        if($listing->user_id != auth()->id()){
+            abort(403,'Unathorized Action');
+        }
         $formfields = $request->validate([
             'title'=>'required',
             'company'=>'required',
@@ -94,7 +99,18 @@ class ListingController extends Controller
 
     //Delete listing 
     public function destroy(Listing $listing){
+        //Make Sure logged in User is owner
+        if($listing->user_id != auth()->id()){
+            abort(403,'Unathorized Action');
+        }
+
         $listing->delete();
         return redirect('/')->with('success',"Listing deleted successfully");
+    }
+
+    //Manage Listings
+    public function manage(){
+        return view('listings.manage',['listings'=>auth()->user()->listings()->get()]);
+
     }
 }
