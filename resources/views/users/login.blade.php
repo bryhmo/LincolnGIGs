@@ -9,7 +9,7 @@
 
                     <form method="POST" action="/users/authenticate">
                         @csrf
-                      
+
 
                         <div class="mb-6">
                             <label for="email" class="inline-block text-lg mb-2"
@@ -58,6 +58,13 @@
                                 <a href="/register" class="text-laravel">Register</a>
                             </p>
                         </div>
+                        <div class="mt-8">
+                            <p>
+                                forget password?
+                                <a href="/forget-password" class="text-laravel">Reset password</a>
+                            </p>
+                        </div>
+
                     </form>
                 </div>
     </x-card>

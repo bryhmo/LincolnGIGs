@@ -12,7 +12,7 @@
         <table class="w-full table-auto rounded-sm">
             <tbody>
                 @unless($listings->isEmpty())
-                
+
                 @foreach($listings as $listing)
                 <tr class="border-gray-300">
                     <td

@@ -8,17 +8,19 @@
 
  <div class="z-10">
      <h1 class="text-6xl font-bold uppercase text-white">
-         Lincoln<span class="text-black">GIGs</span>
+         Link<span class="text-black">GiGs</span>
      </h1>
      <p class="text-2xl text-gray-200 font-bold my-4">
-         Find or post Laravel jobs & projects
+        Find and Post Jobs & Projects
      </p>
      <div>
          <a
-             href="register.html"
+             href="/register"
              class="inline-block border-2 border-white text-white py-2 px-4 rounded-xl uppercase mt-2 hover:text-black hover:border-black"
              >Sign Up to List a Gig</a
          >
      </div>
  </div>
 </section>
+
+

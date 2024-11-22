@@ -1,12 +1,14 @@
 <?php
 
-use App\Http\Controllers\ListingController;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
 use App\Models\Listing;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use function Laravel\Prompts\password;
+use App\Http\Controllers\AuthController;
+
 use App\Http\Controllers\UserController;
-
-
+use App\Http\Controllers\ListingController;
+use App\Http\Controllers\PasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,10 +23,10 @@ use App\Http\Controllers\UserController;
 
 // Common Resource Routes convention:
 /*
-index - show all listings 
-show - show single listing 
-create -   show form to create new listing 
-store - store new listing 
+index - show all listings
+show - show single listing
+create -   show form to create new listing
+store - store new listing
 edit - show form to edit listing
 update - update listing
 destroy - delete listing
@@ -33,7 +35,7 @@ destroy - delete listing
 
 
 
-//All Listing 
+//All Listing
 Route::get('/',[ListingController::class,'index']);
 
 
@@ -71,34 +73,38 @@ Route::get('/register',[UserController::class,'create'])->middleware('guest');
 //Create New User
 Route::post('/users',[UserController::class,'store']);
 
-//logout user 
+//logout user
 Route::post('/logout',[UserController::class,'logout'])->middleware('auth');
 
-//show login form 
+//show password reset  form
+// Route::get('/forget-password', [UserController::class,'forgetPassword']);
+
+Route::get('/forget-password',[AuthController::class,'forgetpassword']);
+Route::post('/forget-password',[AuthController::class,'postForgetPassword']);
+Route::get('/reset/{token}',[AuthController::class,'reset']);
+Route::post('/reset/{token}',[AuthController::class,'Postreset']);
+
+
+
+//show login form
 Route::get('/login', [UserController::class,'login'])->name('login')->middleware('guest');
 
+// password reset
+// Route::get('/passwordreset',[PasswordController::class,'reset']);
 
-//log in user 
+
+//log in user
 Route::post('users/authenticate',[UserController::class,'authenticate']);
-
-
-
-
-
-
-
-
-
 
 //All listing
 // Route::get('/', function () {
-//     //lets just say we want a heading 
-    
+//     //lets just say we want a heading
+
 // });
 
-//single listing 
+//single listing
 // Route::get('/listings/{listing}',function(Listing $listing){
-    
+
 // });
 
 
@@ -122,7 +128,7 @@ Route::get('/hye',function(){
     return response('<h1>welcome to my website </h1>',200)
     ->header('Content-Type','text/plain')
     ->header('laravel-version','laravel 10');
-    
+
 });
 
 

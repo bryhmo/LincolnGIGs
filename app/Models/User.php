@@ -49,4 +49,15 @@ class User extends Authenticatable
     public function listings(){
         return $this->hasMany(Listing::class,'user_id');
     }
+
+    static public function getEmailSingle($email)
+    {
+        // return self::where('email','=',$email);
+        return User::where('email','=',$email)->first();
+    }
+
+   static public function getTokenSingle($remember_token)
+   {
+     return self::where('remember_token','=', $remember_token)->first();
+   }
 }
