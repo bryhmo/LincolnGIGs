@@ -1,66 +1,323 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 💼 JobBoard — Laravel Job Listing Platform
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+> A modern, full-featured job listing web application built with Laravel 10, MySQL and Tailwind CSS. Connecting employers with job seekers through a clean, intuitive and responsive platform.
 
-## About Laravel
+👨‍💻 **Developer:** [Isiaka Ibrahim](https://portfolio-isiaka-ibrahim.vercel.app/)  
+🛠️ **Built With:** Laravel 10, MySQL & Tailwind CSS
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 📌 About The Project
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+JobBoard is a production-ready job listing platform that bridges the gap between **employers** and **job seekers**. Employers can post and manage job listings while job seekers can search, filter and apply for jobs — all managed through a powerful **Admin panel** that oversees the entire platform.
 
-## Learning Laravel
+The platform features job application tracking, category-based filtering, email notifications, and an integrated blog system for career advice and industry news.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 👥 User Roles
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 🔑 Admin
+- Full platform control and oversight
+- Manage all job listings and applications
+- Manage employers and job seekers accounts
+- Manage job categories and filters
+- Moderate and publish blog articles
+- View platform analytics and reports
+- Send system-wide email notifications
 
-## Laravel Sponsors
+### 🏢 Employer
+- Register and manage company profile
+- Post new job listings
+- Manage and edit existing job postings
+- View and track job applications
+- Filter and shortlist candidates
+- Receive email notifications for new applications
+- Mark applications as reviewed, accepted or rejected
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 👨‍💼 Job Seeker
+- Register and build personal profile
+- Browse and search job listings
+- Filter jobs by category, location and type
+- Apply for jobs directly on the platform
+- Track status of submitted applications
+- Receive email notifications on application updates
+- Read blog articles for career tips
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## ✨ Key Features
 
-## Contributing
+- ✅ Role-based authentication (Admin, Employer, Job Seeker)
+- ✅ Job listings with search and advanced filters
+- ✅ Category and job type filtering
+- ✅ Job application tracking system
+- ✅ Email notifications for applications and updates
+- ✅ Admin panel for full platform management
+- ✅ Blog system with articles and career tips
+- ✅ Fully responsive design with Tailwind CSS
+- ✅ Secure authentication with Laravel Breeze/Sanctum
+- ✅ SEO-friendly job listing pages
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## 🛠️ Technology Stack
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+| Technology | Purpose |
+|---|---|
+| Laravel 10 | Backend framework |
+| PHP 8.1+ | Backend language |
+| MySQL | Database |
+| Tailwind CSS | Frontend styling |
+| Laravel Blade | Templating engine |
+| Laravel Mail | Email notifications |
+| Eloquent ORM | Database management |
+| Laravel Policies | Role-based access control |
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 📁 Project Structure
 
-## License
+```
+jobboard/
+├── app/
+│   ├── Http/
+│   │   ├── Controllers/
+│   │   │   ├── Admin/
+│   │   │   │   ├── DashboardController.php
+│   │   │   │   ├── JobController.php
+│   │   │   │   ├── ApplicationController.php
+│   │   │   │   ├── CategoryController.php
+│   │   │   │   ├── BlogController.php
+│   │   │   │   └── UserController.php
+│   │   │   ├── Employer/
+│   │   │   │   ├── DashboardController.php
+│   │   │   │   ├── JobController.php
+│   │   │   │   └── ApplicationController.php
+│   │   │   ├── JobSeeker/
+│   │   │   │   ├── DashboardController.php
+│   │   │   │   └── ApplicationController.php
+│   │   │   ├── JobListingController.php
+│   │   │   └── BlogController.php
+│   ├── Models/
+│   │   ├── User.php
+│   │   ├── Job.php
+│   │   ├── Application.php
+│   │   ├── Category.php
+│   │   ├── Blog.php
+│   │   └── Notification.php
+│   ├── Mail/
+│   │   ├── ApplicationReceived.php
+│   │   └── ApplicationStatusUpdated.php
+│   └── Policies/
+│       ├── JobPolicy.php
+│       └── ApplicationPolicy.php
+├── database/
+│   ├── migrations/
+│   └── seeders/
+├── resources/
+│   ├── views/
+│   │   ├── admin/
+│   │   ├── employer/
+│   │   ├── jobseeker/
+│   │   ├── jobs/
+│   │   ├── blog/
+│   │   └── layouts/
+│   └── css/
+├── routes/
+│   ├── web.php
+│   └── auth.php
+├── .env.example
+├── composer.json
+└── README.md
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+## 🗄️ Database Schema
+
+Key tables include:
+
+- **users** — User accounts with roles (admin, employer, job seeker)
+- **jobs** — Job listings with title, description, type, location, salary
+- **applications** — Job applications linking job seekers to jobs
+- **categories** — Job categories and sub-categories
+- **blogs** — Blog posts and articles
+- **notifications** — Email and in-app notification records
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- PHP 8.1 or higher
+- MySQL 5.7 or higher
+- Composer
+- Node.js & npm (for Tailwind CSS)
+- Laravel 10
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/bryhmo/jobboard.git
+
+# Move into the project directory
+cd jobboard
+
+# Install PHP dependencies
+composer install
+
+# Install Node dependencies
+npm install
+
+# Copy environment file
+cp .env.example .env
+
+# Generate application key
+php artisan key:generate
+```
+
+### Configure Environment
+
+Open `.env` and update the following:
+
+```env
+APP_NAME=JobBoard
+APP_URL=http://localhost
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=jobboard
+DB_USERNAME=root
+DB_PASSWORD=
+
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=your-email@gmail.com
+MAIL_PASSWORD=your-app-password
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=your-email@gmail.com
+MAIL_FROM_NAME="JobBoard"
+```
+
+### Run Migrations & Seeders
+
+```bash
+# Create database tables
+php artisan migrate
+
+# Seed default data (categories, admin account)
+php artisan db:seed
+```
+
+### Build Assets & Start Server
+
+```bash
+# Build Tailwind CSS
+npm run build
+
+# Start development server
+php artisan serve
+```
+
+Visit `http://localhost:8000` in your browser ✅
+
+---
+
+## 🔐 Default Login Credentials
+
+| Role | Email | Password |
+|---|---|---|
+| Admin | admin@jobboard.com | password |
+| Employer | employer@jobboard.com | password |
+| Job Seeker | seeker@jobboard.com | password |
+
+> ⚠️ Change all default passwords immediately after first login!
+
+---
+
+## 📧 Email Notifications
+
+The platform sends automatic email notifications for:
+
+- ✅ New job application received (to employer)
+- ✅ Application status updated — accepted/rejected (to job seeker)
+- ✅ New job posted in a category (to subscribed job seekers)
+- ✅ Account registration confirmation
+
+Emails are handled via **Laravel Mail** with **SMTP** configuration.
+
+---
+
+## 🔒 Security Features
+
+- Password hashing with Laravel's built-in bcrypt
+- CSRF protection on all forms
+- Role-based access control with Laravel Policies
+- SQL injection prevention via Eloquent ORM
+- XSS protection with Blade templating
+- Secure session management
+
+---
+
+## 📝 Blog System
+
+The integrated blog allows admins to:
+- Create and publish career advice articles
+- Manage blog categories and tags
+- Feature articles on the homepage
+- Help job seekers with career tips and industry news
+
+---
+
+## 🌍 Deployment
+
+### Deploy on Shared Hosting (cPanel)
+1. Upload project files to `public_html`
+2. Point document root to `/public`
+3. Import database via phpMyAdmin
+4. Update `.env` with production credentials
+5. Run `php artisan config:cache` and `php artisan route:cache`
+
+### Deploy on Railway / Render
+1. Push to GitHub
+2. Connect repo to Railway or Render
+3. Add environment variables
+4. Set start command to `php artisan serve --host=0.0.0.0`
+
+---
+
+## 🎯 Future Enhancements
+
+- Resume/CV upload and parsing
+- Advanced candidate search for employers
+- Job alerts via email subscription
+- Payment integration for featured job listings
+- Mobile application
+- API for third-party integrations
+
+---
+
+## 👨‍💻 Developer
+
+**Isiaka Ibrahim** — Full Stack Developer & Lecturer
+
+- 🌐 Portfolio: [portfolio-isiaka-ibrahim.vercel.app](https://portfolio-isiaka-ibrahim.vercel.app/)
+- 💼 LinkedIn: [linkedin.com/in/techwithbrymo](https://www.linkedin.com/in/techwithbrymo)
+- 🐙 GitHub: [github.com/bryhmo](https://github.com/bryhmo)
+- 🐦 Twitter/X: [@codewithbryhmo](https://twitter.com/codewithbryhmo)
+- 📱 WhatsApp: [+234 703 944 3182](https://wa.me/2347039443182)
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+⭐ If you found this project helpful, feel free to star the repo and share!
